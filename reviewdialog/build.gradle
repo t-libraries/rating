@@ -6,23 +6,23 @@ plugins {
 }
 
 ext {
-    PUBLISH_GROUP_ID = 'io.github.Izhamalik'
+    PUBLISH_GROUP_ID = 'io.github.t-libraries'
     PUBLISH_VERSION = '1.0'
     PUBLISH_ARTIFACT_ID = 'review dialog'
     PUBLISH_DESCRIPTION = 'An Android library for the different type of review and rating dialogs'
-    PUBLISH_URL = 'https://github.com/Izhamalik/reviewdialoglibrary'
+    PUBLISH_URL = 'https://github.com/t-libraries/rating.git'
     PUBLISH_LICENSE_NAME = 'Apache 2.0 License'
     PUBLISH_LICENSE_URL =
             'https://www.apache.org/licenses/LICENSE-2.0'
-    PUBLISH_DEVELOPER_ID = 'Izhamalik'
-    PUBLISH_DEVELOPER_NAME = 'Izhar Malik'
-    PUBLISH_DEVELOPER_EMAIL = 'izhar.malik923@gmail.com'
+    PUBLISH_DEVELOPER_ID = 't-libraries'
+    PUBLISH_DEVELOPER_NAME = 't-libraries'
+    PUBLISH_DEVELOPER_EMAIL = 'developerresource@technest.pk'
     PUBLISH_SCM_CONNECTION =
-            'scm:git:github.com/Izhamalik/reviewdialoglibrary'
+            'scm:git:github.com/t-libraries/reviewdialoglibrary'
     PUBLISH_SCM_DEVELOPER_CONNECTION =
-            'scm:git:ssh://github.com/Izhamalik/reviewdialoglibrary'
+            'scm:git:ssh://github.com/t-libraries/reviewdialoglibrary'
     PUBLISH_SCM_URL =
-            'https://github.com/Izhamalik/reviewdialoglibrary'
+            'https://github.com/t-libraries/rating.git'
 }
 
 apply from: "${rootProject.projectDir}/scripts/publish-module.gradle"
@@ -30,11 +30,11 @@ apply from: "${rootProject.projectDir}/scripts/publish-module.gradle"
 android {
 
     namespace 'com.exaple.reviewdialog'
-    compileSdk 34
+    compileSdk 35
 
     defaultConfig {
         minSdk 24
-        targetSdk 34
+        targetSdk 35
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -69,7 +69,7 @@ publishing {
 
             pom {
                 name.set("Review Dialog Library")
-                url.set("https://maven.pkg.github.com/Izhamalik/reviewdialoglibrary")
+                url.set("https://maven.pkg.github.com/t-libraries/reviewdialoglibrary")
                 description.set("A library for handling review dialogs in Android.")
             }
 
@@ -80,14 +80,13 @@ publishing {
 
 dependencies {
 
-    implementation 'androidx.core:core-ktx:1.13.1'
-    implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.material:material:1.11.0'
-    implementation 'androidx.activity:activity:1.9.3'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.appcompat:appcompat:1.7.1'
+    implementation 'com.google.android.material:material:1.13.0'
+    implementation 'androidx.activity:activity:1.10.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.2.1'
     testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.2.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'
+    androidTestImplementation 'androidx.test.ext:junit:1.3.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.7.0'
 
     //sdp
     implementation 'com.intuit.sdp:sdp-android:1.1.1'
@@ -96,6 +95,6 @@ dependencies {
     implementation 'com.google.android.play:review-ktx:2.0.2'
 
     //Lottie Animation
-    implementation 'com.airbnb.android:lottie:6.2.0'
+    implementation 'com.airbnb.android:lottie:6.7.1'
 
 }
