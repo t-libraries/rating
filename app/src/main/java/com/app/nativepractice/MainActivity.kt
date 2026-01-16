@@ -13,11 +13,17 @@ class MainActivity : AppCompatActivity() {
         bind = ActivityMainBinding.inflate(layoutInflater)
         setContentView(bind.root)
 
-        ReviewDialog.showRateusDialog(this , ArrayList(arrayListOf (getDrawable(R.drawable.ic_profile1) , getDrawable(R.drawable.ic_profile1),getDrawable(R.drawable.ic_profile1))) , ArrayList(arrayListOf ("Excellent app to troubleshoot wireless networkingissues. asfsdffsfsdsag" , "Excellent app to troubleshoot wireless networkingissues. asfsdffsfsdsag" , "Excellent app to troubleshoot wireless networkingissues. asfsdffsfsdsag")) , ArrayList(arrayListOf ("Not so good" , "Not so good" , "Not so good")))
-
+        ReviewDialog.showRateusDialog(
+            this,
+            arrayListOf(
+                getDrawable(R.drawable.ic_profile1),
+                getDrawable(R.drawable.ic_profile1),
+                getDrawable(R.drawable.ic_profile1)
+            ),
+            arrayListOf("adflkjd", "adflkajsdf", "adflasjdf"),
+            arrayListOf("sdfjlaskdjf" , "alsdkfjaodfi", "sdfjlsdfjihtrhyadsfh")
+        )
 
     }
-
-
 
 }

@@ -2,17 +2,39 @@ plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
     id 'maven-publish'
+    id 'signing'
 }
 
+ext {
+    PUBLISH_GROUP_ID = 'io.github.Izhamalik'
+    PUBLISH_VERSION = '1.0'
+    PUBLISH_ARTIFACT_ID = 'review dialog'
+    PUBLISH_DESCRIPTION = 'An Android library for the different type of review and rating dialogs'
+    PUBLISH_URL = 'https://github.com/Izhamalik/reviewdialoglibrary'
+    PUBLISH_LICENSE_NAME = 'Apache 2.0 License'
+    PUBLISH_LICENSE_URL =
+            'https://www.apache.org/licenses/LICENSE-2.0'
+    PUBLISH_DEVELOPER_ID = 'Izhamalik'
+    PUBLISH_DEVELOPER_NAME = 'Izhar Malik'
+    PUBLISH_DEVELOPER_EMAIL = 'izhar.malik923@gmail.com'
+    PUBLISH_SCM_CONNECTION =
+            'scm:git:github.com/Izhamalik/reviewdialoglibrary'
+    PUBLISH_SCM_DEVELOPER_CONNECTION =
+            'scm:git:ssh://github.com/Izhamalik/reviewdialoglibrary'
+    PUBLISH_SCM_URL =
+            'https://github.com/Izhamalik/reviewdialoglibrary'
+}
+
+apply from: "${rootProject.projectDir}/scripts/publish-module.gradle"
+
 android {
+
     namespace 'com.exaple.reviewdialog'
     compileSdk 34
 
     defaultConfig {
         minSdk 24
         targetSdk 34
-        versionCode 1
-        versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -24,11 +46,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = '17'
     }
 
     viewBinding {
@@ -42,6 +64,14 @@ publishing {
             groupId = "com.raing"
             artifactId = "reviewDialog"
             version = "0.9-alpha"
+
+            from(components.findByName("release") ?: components.findByName("debug"))
+
+            pom {
+                name.set("Review Dialog Library")
+                url.set("https://maven.pkg.github.com/Izhamalik/reviewdialoglibrary")
+                description.set("A library for handling review dialogs in Android.")
+            }
 
         }
     }

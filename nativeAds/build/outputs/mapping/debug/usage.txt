@@ -1,6 +1,0 @@
-com.google.android.ads.nativetemplates.BuildConfig
-com.google.android.ads.nativetemplates.NativeTemplateStyle$Builder
-com.google.android.ads.nativetemplates.NativeTemplateStyle
-com.google.android.ads.nativetemplates.TemplateView:
-    private android.widget.RatingBar ratingBar
-    private com.google.android.ads.nativetemplates.NativeTemplateStyle styles

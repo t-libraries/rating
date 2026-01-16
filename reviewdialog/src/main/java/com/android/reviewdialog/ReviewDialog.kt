@@ -26,7 +26,6 @@ object ReviewDialog {
     private val handler = Handler(Looper.getMainLooper())
     private var toast: Toast? = null
     private var rateusAdapter: RateusAdapter? = null
-    private var listofrateusmodel: ArrayList<RateUsModel> = arrayListOf()
 
     fun showReviewDialog(context: Context) {
         reviewDialog?.let {

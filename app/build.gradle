@@ -23,29 +23,28 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            resValue 'string', 'ad_native', '"ca-app-pub-3940256099942544/2247696110"'
-            resValue 'string', 'ad_banner', '"ca-app-pub-3940256099942544/6300978111"'
-            resValue 'string', 'app_id', '"ca-app-pub-3940256099942544~3347511713"'
         }
         debug {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            resValue 'string', 'ad_native', '"ca-app-pub-3940256099942544/2247696110"'
-            resValue 'string', 'ad_banner', '"ca-app-pub-3940256099942544/6300978111"'
-            resValue 'string', 'app_id', '"ca-app-pub-3940256099942544~3347511713"'
         }
+    }
 
-    }
+
+
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
+
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = '17'
     }
+
     viewBinding {
         enabled = true
     }
+
 
 }
 
@@ -60,5 +59,4 @@ dependencies {
     implementation 'com.intuit.sdp:sdp-android:1.1.0'
 
     implementation(project(":reviewdialog"))
-
 }
