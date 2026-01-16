@@ -13,3 +13,5 @@
 .externalNativeBuild
 .cxx
 local.properties
+echo gradle.properties >> .gitignore
+
