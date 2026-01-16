@@ -5,8 +5,8 @@ plugins {
 }
 
 android {
-    namespace 'com.app.nativepractice'
-    compileSdk 35
+    namespace = 'com.app.nativepractice'
+    compileSdk = 35
 
     defaultConfig {
         applicationId "com.app.nativepractice"

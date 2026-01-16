@@ -29,14 +29,18 @@ apply from: "${rootProject.projectDir}/scripts/publish-module.gradle"
 
 android {
 
-    namespace 'com.exaple.reviewdialog'
-    compileSdk 35
+    namespace = 'com.exaple.reviewdialog'
+    compileSdk = 35
 
     defaultConfig {
         minSdk 24
         targetSdk 35
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    signing {
+        required { false }
     }
 
     buildTypes {
