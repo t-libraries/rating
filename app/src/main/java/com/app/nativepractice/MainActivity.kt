@@ -2,6 +2,7 @@ package com.app.nativepractice
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.graphics.toColorInt
 import com.android.reviewdialog.ReviewDialog
 import com.app.nativepractice.databinding.ActivityMainBinding
 
@@ -15,13 +16,16 @@ class MainActivity : AppCompatActivity() {
 
         ReviewDialog.showRateusDialog(
             this,
-            arrayListOf(
-                getDrawable(R.drawable.ic_profile1),
-                getDrawable(R.drawable.ic_profile1),
-                getDrawable(R.drawable.ic_profile1)
-            ),
-            arrayListOf("adflkjd", "adflkajsdf", "adflasjdf"),
-            arrayListOf("sdfjlaskdjf" , "alsdkfjaodfi", "sdfjlsdfjihtrhyadsfh")
+            "#FFDE21".toColorInt(),
+                    arrayListOf (
+                    getDrawable(R.drawable.ic_profile1),
+            getDrawable(R.drawable.ic_profile1),
+            getDrawable(R.drawable.ic_profile1)
+        ),
+        arrayListOf("adflkjd", "adflkajsdf", "adflasjdf"),
+        arrayListOf("sdfjlaskdjf", "alsdkfjaodfi", "sdfjlsdfjihtrhyadsfh"), {
+
+        }
         )
 
     }

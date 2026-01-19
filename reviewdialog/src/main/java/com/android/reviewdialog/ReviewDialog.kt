@@ -1,4 +1,4 @@
-package com.review.reviewdialog
+package com.android.reviewdialog
 
 import android.app.Activity
 import android.app.Dialog
