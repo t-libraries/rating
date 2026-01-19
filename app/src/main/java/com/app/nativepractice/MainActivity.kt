@@ -17,15 +17,16 @@ class MainActivity : AppCompatActivity() {
         ReviewDialog.showRateusDialog(
             this,
             "#FFDE21".toColorInt(),
-                    arrayListOf (
-                    getDrawable(R.drawable.ic_profile1),
-            getDrawable(R.drawable.ic_profile1),
-            getDrawable(R.drawable.ic_profile1)
-        ),
-        arrayListOf("adflkjd", "adflkajsdf", "adflasjdf"),
-        arrayListOf("sdfjlaskdjf", "alsdkfjaodfi", "sdfjlsdfjihtrhyadsfh"), {
+            arrayListOf(
+                getDrawable(R.drawable.ic_profile1),
+                getDrawable(R.drawable.ic_profile1),
+                getDrawable(R.drawable.ic_profile1)
+            ),
+            arrayListOf("adflkjd", "adflkajsdf", "adflasjdf"),
+            arrayListOf("sdfjlaskdjf", "alsdkfjaodfi", "sdfjlsdfjihtrhyadsfh"),
+            onDismiss = {
 
-        }
+            }
         )
 
     }

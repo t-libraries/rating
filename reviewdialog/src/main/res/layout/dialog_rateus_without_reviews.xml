@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="@dimen/_280sdp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:strokeWidth="0dp"
+    app:cardCornerRadius="@dimen/_10sdp"
     app:cardBackgroundColor="@color/backgroundcolor"
-    app:cardCornerRadius="@dimen/_8sdp"
-    app:cardElevation="@dimen/_2sdp"
-    android:layout_height="@dimen/_470sdp">
-
+    android:elevation="@dimen/_2sdp"
+    android:layout_height="@dimen/_230sdp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginVertical="@dimen/_20sdp">
-
 
         <ImageView
             android:id="@+id/crossBtn"
@@ -25,7 +23,7 @@
             android:foreground="@drawable/btn_click_ripple_effect"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:tint="@color/iconcolor" />
+            app:tint="@color/black" />
 
 
         <TextView
@@ -35,7 +33,7 @@
             android:layout_marginTop="@dimen/_12sdp"
             android:text="@string/how_was_your_experience_nwith_us"
             android:textAlignment="center"
-            android:textColor="@color/iconcolor"
+            android:textColor="@color/black"
             android:textSize="@dimen/_15sdp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -122,7 +120,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_25sdp"
             android:text="@string/the_best_we_can_get"
-            android:textColor="#7A6CEF"
+            android:textColor="#00786C"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout54" />
@@ -137,30 +135,6 @@
             app:layout_constraintStart_toEndOf="@+id/bestTxt" />
 
 
-        <TextView
-            android:id="@+id/feedbackTxt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_15sdp"
-            android:text="@string/other_users_feedback"
-            android:textColor="#7A6CEF"
-            android:layout_marginStart="@dimen/_20sdp"
-            android:textSize="@dimen/_14sdp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/bestTxt" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginTop="@dimen/_7sdp"
-            android:layout_marginStart="@dimen/_16sdp"
-            android:layout_marginEnd="@dimen/_16sdp"
-            app:layout_constraintTop_toBottomOf="@+id/feedbackTxt"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</com.google.android.material.card.MaterialCardView>
+</androidx.cardview.widget.CardView>
