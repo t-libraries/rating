@@ -1,13 +1,15 @@
-package com.android.reviewdialog
+package com.review.reviewdialog
 
 import android.app.Activity
 import android.app.Dialog
 import android.content.Context
+import android.content.res.ColorStateList
 import android.graphics.drawable.Drawable
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -27,7 +29,7 @@ object ReviewDialog {
     private var toast: Toast? = null
     private var rateusAdapter: RateusAdapter? = null
 
-    fun showReviewDialog(context: Context) {
+    fun showReviewDialog(context: Context , onDismiss: (isReviewGiven : Boolean) -> Unit) {
         reviewDialog?.let {
             if (it.isShowing) {
                 it.dismiss()
@@ -48,23 +50,30 @@ object ReviewDialog {
 
         likeBtn?.setOnClickListener {
             reviewDialog?.dismiss()
+            onDismiss(true)
             showInAppReviewScreen(context)
         }
 
         dislikeBtn?.setOnClickListener {
+            Toast.makeText(context , "Thanks for your feedback." , Toast.LENGTH_SHORT).show()
+            onDismiss(false)
             reviewDialog?.dismiss()
         }
 
         closeBtn?.setOnClickListener {
             reviewDialog?.dismiss()
+            onDismiss(false)
         }
+
     }
 
     fun showRateusDialog(
         context: Context,
+        themecolor: Int,
         listOfDrawable: ArrayList<Drawable?>,
         listOfUserName: ArrayList<String>,
-        listOfReviews: ArrayList<String>
+        listOfReviews: ArrayList<String>,
+        onDismiss: (isReviewGiven:Boolean) -> Unit
     ) {
         rateusAdapter = RateusAdapter()
         rateusdialog?.let {
@@ -78,16 +87,25 @@ object ReviewDialog {
         }
         rateusdialog?.setContentView(R.layout.dialog_rateus)
         rateusdialog?.setCancelable(false)
+
         rateusdialog?.show()
+
+        rateusdialog?.findViewById<ImageView>(R.id.arrowImg)
+            ?.let { setImageViewTint(it, themecolor) }
+
+        rateusdialog?.findViewById<TextView>(R.id.textView62)?.setTextColor(themecolor)
+        rateusdialog?.findViewById<TextView>(R.id.textView63)?.setTextColor(themecolor)
+
 
         var recycerview = rateusdialog?.findViewById<RecyclerView>(R.id.recyclerView)
         var closeBtn = rateusdialog?.findViewById<ImageView>(R.id.crossBtn)
 
-        var onestarBtn = rateusdialog?.findViewById<LottieAnimationView>(R.id.onestarBtn)
-        var twostarBtn = rateusdialog?.findViewById<LottieAnimationView>(R.id.twostarBtn)
-        var threestarBtn = rateusdialog?.findViewById<LottieAnimationView>(R.id.threestarBtn)
-        var fourstarBtn = rateusdialog?.findViewById<LottieAnimationView>(R.id.fourstarBtn)
-        var fivestarBtn = rateusdialog?.findViewById<LottieAnimationView>(R.id.fivestarBtn)
+        val onestarBtn = rateusdialog?.findViewById<LottieAnimationView>(R.id.onestarBtn)
+        val twostarBtn = rateusdialog?.findViewById<LottieAnimationView>(R.id.twostarBtn)
+        val threestarBtn = rateusdialog?.findViewById<LottieAnimationView>(R.id.threestarBtn)
+        val fourstarBtn = rateusdialog?.findViewById<LottieAnimationView>(R.id.fourstarBtn)
+        val fivestarBtn = rateusdialog?.findViewById<LottieAnimationView>(R.id.fivestarBtn)
+
 
         if (twostarBtn != null) {
             if (onestarBtn != null) {
@@ -117,30 +135,36 @@ object ReviewDialog {
 
         onestarBtn?.setOnClickListener {
             toast(context as Activity, "Thanks for your feedback.")
+            onDismiss(false)
             rateusdialog?.dismiss()
         }
 
         twostarBtn?.setOnClickListener {
             toast(context as Activity, "Thanks for your feedback.")
+            onDismiss(false)
             rateusdialog?.dismiss()
         }
 
         threestarBtn?.setOnClickListener {
             toast(context as Activity, "Thanks for your feedback.")
+            onDismiss(false)
             rateusdialog?.dismiss()
         }
 
         fourstarBtn?.setOnClickListener {
             showInAppReviewScreen(context)
+            onDismiss(true)
             rateusdialog?.dismiss()
         }
 
         fivestarBtn?.setOnClickListener {
             showInAppReviewScreen(context)
+            onDismiss(true)
             rateusdialog?.dismiss()
         }
 
         closeBtn?.setOnClickListener {
+            onDismiss(false)
             rateusdialog?.dismiss()
         }
 
@@ -149,6 +173,12 @@ object ReviewDialog {
                 context,
                 setuprateuslist(listOfDrawable, listOfReviews, listOfUserName)
             )
+    }
+
+
+
+    fun setImageViewTint(imageView: ImageView, color: Int) {
+        imageView.imageTintList = ColorStateList.valueOf(color)
     }
 
 
@@ -217,9 +247,7 @@ object ReviewDialog {
     }
 
     fun LottieAnimationView.loadAnimationFromRaw(context: Context, rawResId: Int) {
-        // Load Lottie JSON from a raw resource
         setAnimation(rawResId)
-
         // Optional: Configure additional properties
         repeatCount = LottieDrawable.INFINITE
         playAnimation()
