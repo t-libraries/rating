@@ -68,8 +68,3 @@ afterEvaluate {
     }
     tasks.generateMetadataFileForReleasePublication.dependsOn androidSourcesJar
 }
-
-
-signing {
-    sign publishing.publications
-}

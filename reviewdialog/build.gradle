@@ -2,7 +2,6 @@ plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
     id 'maven-publish'
-    id 'signing'
 }
 
 ext {
@@ -39,9 +38,6 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    signing {
-        required { false }
-    }
 
     buildTypes {
         release {
@@ -63,6 +59,7 @@ android {
 }
 
 publishing {
+
     publications {
         maven(MavenPublication) {
             groupId = "com.raing"
@@ -79,6 +76,7 @@ publishing {
 
         }
     }
+
 }
 
 
